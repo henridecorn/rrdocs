@@ -94,3 +94,63 @@ Error Code | Meaning
 429 - Too many requests | You have reached your usage limit. Upgrade your plan if necessary.
 5XX - Server Errors | Something went wrong on RickRut's end.
 
+# Invite
+
+> HTTP request example
+
+```ruby
+GET https://www.rickrut.com/api/v1/invite?email=john.smith@gmail.com&opening=software-engineer&api_key=api_key
+```
+
+> Response: 200 OK
+
+```json
+{
+  "applicant": {
+    "id": 31415,
+    "email": "john.smith@gmail.com"
+  }
+}
+```
+
+This API endpoint enables you to register a new applicant to one of your openings.
+
+Parameter | Required | Description
+--------- | -------- | -----------
+**email** | True | The applicant's email.
+**opening** | True | The name of the opening.
+**first_name** | False | The applicant's first_name.
+**last_name** | False | The applicant's last_name.
+**api_key** | True | Your secret API key. You can generate it in your dashboard.
+
+
+# Get an applicant
+
+> HTTP request example
+
+```ruby
+GET https://www.rickrut.com/api/v1/applicants/31415?api_key=api_key
+```
+
+> Response: 200 OK
+
+```json
+{
+  "applicant": {
+    "id": 31415,
+    "email": "john.smith@gmail.com"
+  }
+}
+```
+
+Retrieves all the fields of an applicant, including his/her answers and scores.
+
+Parameter | Required | Description
+--------- | -------- | -----------
+**id** | True | Identifier of the applicant.
+**api_key** | True | Your secret API key. You can generate it in your dashboard.
+
+
+
+
+
