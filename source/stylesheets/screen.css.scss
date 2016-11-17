@@ -527,10 +527,10 @@ html, body {
 
 .content {
   pre, blockquote {
-    background-color: $code-bg;
+    background-color: $examples-bg;
     color: #fff;
 
-    padding: 2em $main-padding;
+    padding: 5px $main-padding;
     margin: 0;
     width: $examples-width;
 
@@ -553,16 +553,22 @@ html, body {
 
   pre {
     @extend %code-font;
+    background-color: $code-annotation-bg;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #404040;
+    border-radius: 5px;
+    padding: 5px 41px;
+    margin-bottom: 10px;
   }
 
   blockquote {
     &>p {
-      background-color: $code-annotation-bg;
+      background-color: $examples-bg;
       border-radius: 5px;
-      padding: $code-annotation-padding;
-      color: #ccc;
-      border-top: 1px solid #000;
-      border-bottom: 1px solid #404040;
+      // padding: $code-annotation-padding;
+      color: #fff;
+      // border-top: 1px solid #000;
+      // border-bottom: 1px solid #404040;
     }
   }
 }
@@ -628,5 +634,5 @@ html, body {
 }
 
 .highlight, .highlight .w {
-  background-color: $code-bg;
+  background-color: $code-annotation-bg;
 }

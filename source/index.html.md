@@ -2,19 +2,45 @@
 title: RickRut's API Reference
 
 
-includes:
-  - errors
-
 search: false
 ---
 
 # Introduction
+
+> API endpoint
+
+```ruby
+GET http://example.com/api/kittens
+```
 
 Welcome to the RickRut API! You can use our simple JSON API to access candidate management endpoints, which can let you register candidates and retrieve information on them.
 
 You can view code examples in the dark area to the right.
 
 # Structure
+
+> Successful response
+
+```json
+{
+  "data": {
+    ...
+  },
+  "meta": {
+    ... 
+  }
+}
+```
+
+> Error response
+
+```json
+{
+  "errors": {
+    ...
+  }
+}
+```
 
 Our API is designed to be as simple to use as possible. We always use the same basic structure:
 
@@ -26,168 +52,45 @@ Our API is designed to be as simple to use as possible. We always use the same b
 
 # Authentication
 
+> [Log in](https://www.rickrut.com/users/sign_in) to get your API secret key
+
+
+
 Authentication is made with a key you will have to add to every call you make to our API. This parameter is always required. We'll return an error if the key is either missing or invalid.
 
 Your API key is what identifies your account, so make sure to keep it secret! You can at anytime generate or delete API keys on your dashboard.
 
 
-> To authorize, use this code:
+# Errors
 
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-```
-
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
-
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
+> Error example
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "errors" : [
+    {
+      "id" : "wrong_params",
+      "code" : 400,
+      "details" : "You are missing the API key"
+    }
+  ]
 }
 ```
 
-This endpoint retrieves a specific kitten.
+RickRut's API uses conventional HTTP response codes to indicate the success or failure of an API request.
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+In case of an error, we'll return an array of errors containing information regarding what happened.
 
-### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Error Code | Meaning
+---------- | -------
+200 - OK | The request was successful.
+201 - Created | The request was successful and the resource was created.
+204 - No content | The request was successful and no additional content was sent.
+400 - Bad request | Your request was not valid.
+401 - Unauthorized | No valid API key was provided.
+404 - Not found | The requested resource does not exist.
+422 - Unprocessable entity | Your request is valid but the creation of the resource failed. Check the errors.
+429 - Too many requests | You have reached your usage limit. Upgrade your plan if necessary.
+5XX - Server Errors | Something went wrong on RickRut's end.
 
