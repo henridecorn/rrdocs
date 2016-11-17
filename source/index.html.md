@@ -10,7 +10,7 @@ search: false
 > API endpoint
 
 ```ruby
-GET http://example.com/api/kittens
+GET https://www.rickrut.com/api/v1/
 ```
 
 Welcome to the RickRut API! You can use our simple JSON API to access candidate management endpoints, which can let you register candidates and retrieve information on them.
