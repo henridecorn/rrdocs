@@ -1,15 +1,11 @@
 ---
 title: RickRut's API Reference
 
-language_tabs:
-  - ruby
-
-
 
 includes:
   - errors
 
-search: true
+search: false
 ---
 
 # Introduction
