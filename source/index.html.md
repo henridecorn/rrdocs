@@ -14,7 +14,22 @@ Welcome to the RickRut API! You can use our simple JSON API to access candidate 
 
 You can view code examples in the dark area to the right.
 
+# Structure
+
+Our API is designed to be as simple to use as possible. We always use the same basic structure:
+
+* `data` contains the data you requested.
+* `meta` provides information regarding your request.
+* `errors` shows errors with insights regarding what made the request fail. Learn more about the [errors responses](#errors).
+
+
+
 # Authentication
+
+Authentication is made with a key you will have to add to every call you make to our API. This parameter is always required. We'll return an error if the key is either missing or invalid.
+
+Your API key is what identifies your account, so make sure to keep it secret! You can at anytime generate or delete API keys on your dashboard.
+
 
 > To authorize, use this code:
 

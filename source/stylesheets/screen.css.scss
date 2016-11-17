@@ -67,8 +67,7 @@ html, body {
   bottom: 0;
   width: $nav-width;
   background-color: $nav-bg;
-  font-size: 13px;
-  font-weight: bold;
+  font-size: 16px;
   border-left: 5px solid #426A85;
 
   // language selector for mobile devices
@@ -151,11 +150,15 @@ html, body {
 
 
   .tocify-item>a, .toc-footer li {
-    padding: 0 $nav-padding 0 $nav-padding;
+    padding: 5px $nav-padding 5px $nav-padding;
     display: block;
     overflow-x: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .tocify-item>a:hover {
+    text-decoration: underline;
   }
 
   // The Table of Contents is composed of multiple nested
@@ -187,17 +190,17 @@ html, body {
   .tocify-subheader {
     display: none; // tocify will override this when needed
     background-color: $nav-subitem-bg;
-    font-weight: 500;
+    // font-weight: 500;
     .tocify-item>a {
       padding-left: $nav-padding + $nav-indent;
       font-size: 12px;
     }
 
     // for embossed look:
-    @include embossed-bg;
-    &>li:last-child {
-      box-shadow: none; // otherwise it'll overflow out of the subheader
-    }
+    // @include embossed-bg;
+    // &>li:last-child {
+    //   box-shadow: none; // otherwise it'll overflow out of the subheader
+    // }
   }
 
   .toc-footer {
@@ -362,11 +365,9 @@ html, body {
     font-size: 30px;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #eee;
     margin-bottom: $h1-margin-bottom;
-    margin-top: 2em;
-    border-top: 1px solid #ddd;
-    background-image: linear-gradient(to bottom, #fff, #f9f9f9);
+    margin-top: 100px;
   }
 
   h1:first-child, div:first-child + h1 {
