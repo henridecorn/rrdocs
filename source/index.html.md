@@ -118,36 +118,39 @@ POST https://www.rickrut.com/api/v1/applicants?api_key=b95cad3e4825ba123995a87b5
 ```json
 {
   "data": {
-    "applicant": {
-      "id": 31415,
+    "id": "31415",
+    "type": "applicants",
+    "attributes": {
       "email": "john.smith@gmail.com",
-      "opening_id": 1,
-      "status": "INVITED",
-      "skill_score": null,
-      "adequation_score": null,
-      "first_name": "John",
-      "last_name": "Smith",
+      "opening-id": 47,
+      "status": "REMINDED",
+      "skill-score": null,
+      "adequation-score": null,
+      "first-name": "John",
+      "last-name": "Smith",
       "code": "IKWOOFKE",
-      "recruiter_score": 0,
+      "recruiter-score": 0,
       "source": "API",
       "step": 0,
       "cv": "/cvs/original/missing.png",
-      "video_uuid": null,
-      "audio_introduction": "/audio_introductions/original/missing.png",
-      "text_introduction": null,
+      "video-uuid": null,
+      "audio-introduction": "/audio_introductions/original/missing.png",
+      "text-introduction": null,
       "slug": "de-corn-henri-9b1fef96-f3cf-43c3-9c2d-809c73693a17",
-      "created_at": "2016-11-18T13:02:04Z",
-      "updated_at": "2016-11-18T13:02:04Z",
-      "finished_at": null,
-      "quizz_answers": [
-
-      ],
-      "poll_answers": [
-
-      ],
-      "case_answers": [
-
-      ]
+      "created-at": "2016-11-18T13:02:04Z",
+      "updated-at": "2016-11-21T14:49:05Z",
+      "finished-at": null
+    },
+    "relationships": {
+      "quizz-answers": {
+        "data": []
+      },
+      "poll-answers": {
+        "data": []
+      },
+      "case-answers": {
+        "data":[]
+      }
     }
   }
 }
@@ -177,60 +180,71 @@ GET https://www.rickrut.com/api/v1/applicants/31415?api_key=b95cad3e4825ba123995
 ```json
 {
   "data": {
-    "applicant": {
-      "id": 31415,
+    "id": "329",
+    "type": "applicants",
+    "attributes": {
       "email": "john.smith@gmail.com",
-      "opening_id": 45,
+      "opening-id": 45,
       "status": "SCORED",
-      "skill_score": "15.0",
-      "adequation_score": "100.0",
-      "first_name": "John",
-      "last_name": "Smith",
+      "skill-score": "15.0",
+      "adequation-score": "100.0",
+      "first-name": "John",
+      "last-name": "Smith",
       "code": "ATZDVQDH",
-      "recruiter_score": 0,
+      "recruiter-score": 0,
       "source": "API",
       "step": 6,
       "cv": "/cvs/original/missing.png",
-      "video_uuid": null,
-      "audio_introduction": "/audio_introductions/original/missing.png",
-      "text_introduction": null,
+      "video-uuid": null,
+      "audio-introduction": "/audio_introductions/original/missing.png",
+      "text-introduction": null,
       "slug": "de-corn-henri-2016-10-27-09-02-49-utc",
-      "created_at": "2016-10-27T09:02:49Z",
-      "updated_at": "2016-10-27T09:03:35Z",
-      "finished_at": null,
-      "quizz_answers": [
-        {
-          "applicant_id": 329,
-          "id": 150,
-          "quizz_option_id": 56,
-          "final_score": "100.0",
-          "created_at": "2016-10-27T09:03:06.345Z",
-          "updated_at": "2016-10-27T09:03:06.345Z",
-          "quizz_id": 28
-        }
-      ],
-      "poll_answers": [
-
-      ],
-      "case_answers": [
-        {
-          "applicant_id": 329,
-          "id": 212,
-          "value": null,
-          "final_score": "15.0",
-          "created_at": "2016-10-27T09:03:10.979Z",
-          "updated_at": "2016-10-27T09:03:32.133Z",
-          "opening_case_id": 25,
-          "duration": 8,
-          "audio_file_file_name": "audio_recording_1477558998009.mp3",
-          "audio_file_content_type": "audio/mp3",
-          "audio_file_file_size": 7313,
-          "audio_file_updated_at": "2016-10-27T09:03:18.233Z",
-          "gibberish": true
-        }
-      ]
+      "created-at": "2016-10-27T09:02:49Z",
+      "updated-at": "2016-10-27T09:03:35Z",
+      "finished-at": null
+    },
+    "relationships": {
+      "quizz-answers": {
+        "data": [
+          {
+            "id": "150",
+            "type": "quizz-answers"
+          }
+        ]
+      },
+      "poll-answers": {
+        "data": []
+      },
+      "case-answers": {
+        "data": [
+          {
+            "id":"212",
+            "type":"case-answers"
+          }
+        ]
+      }
     }
-  }
+  },
+  "included": [
+    {
+      "id": "150",
+      "type": "quizz-answers",
+      "attributes": {
+        "quizz": 28,
+        "value":"Oui"
+      }
+    },
+    {
+      "id": "212",
+      "type": "case-answers",
+      "attributes": {
+        "value": null,
+        "audio-file": "/system/case_answers/audio_files/000/000/212/original/audio_recording_1477558998009.mp3?1477558998",
+        "duration": 8,
+        "gibberish": true
+      }
+    }
+  ]
 }
 ```
 
