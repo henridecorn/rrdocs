@@ -52,7 +52,7 @@ Our API is designed to be as simple to use as possible. We always use the same b
 
 # Authentication
 
-> [Log in](https://www.rickrut.com/users/sign_in) to get your API secret key
+> [Ask us](mailto:contact@rickrut.com) to get your API secret key
 
 
 
