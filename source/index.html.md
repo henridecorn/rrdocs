@@ -139,7 +139,8 @@ POST https://www.rickrut.com/api/v1/applicants?api_key=b95cad3e4825ba123995a87b5
       "slug": "de-corn-henri-9b1fef96-f3cf-43c3-9c2d-809c73693a17",
       "created-at": "2016-11-18T13:02:04Z",
       "updated-at": "2016-11-21T14:49:05Z",
-      "finished-at": null
+      "finished-at": null,
+      "last_ip": null
     },
     "relationships": {
       "quizz-answers": {
@@ -201,7 +202,8 @@ GET https://www.rickrut.com/api/v1/applicants/31415?api_key=b95cad3e4825ba123995
       "slug": "de-corn-henri-2016-10-27-09-02-49-utc",
       "created-at": "2016-10-27T09:02:49Z",
       "updated-at": "2016-10-27T09:03:35Z",
-      "finished-at": null
+      "finished-at": null,
+      "last_ip": "127.0.0.1"
     },
     "relationships": {
       "quizz-answers": {
